@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Simple Website</title>
+</head>
+<body>
+    <header>
+        <nav>
+                <button id="homeBtn">Home</button><br><br>
+                <button id="secondBtn">View Products</button><br><br>
+                <button id="thirdBtn">Add Products</button><br>
+
+        </nav>
+    </header>
+    <main>
+        <iframe id="iframe" src="" width="800" height="600"></iframe>
+    </main>
+    <script>
+        document.getElementById('homeBtn').onclick = function() {
+            document.getElementById('iframe').src = "{% static 'assets/myproject/home.html' %}";
+        };
+        document.getElementById('secondBtn').onclick = function() {
+            document.getElementById('iframe').src = "{% static 'assets/myproject/cc.html' %}";
+        };
+        document.getElementById('thirdBtn').onclick = function() {
+            document.getElementById('iframe').src = "{% static 'assets/myproject/createproduct.html' %}";
+        };
+    </script>
+</body>
+</html>

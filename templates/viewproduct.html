@@ -1,0 +1,48 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first {
+            display: inline;
+            align-self: center;
+        }
+        .mm {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        {% if user.is_authenticated %}
+            <li>Hello, {{ user.first_name }}</li>
+            <li><a href="accounts/logout">Logout</a></li>
+        {% else %}
+            <li><a href="accounts/register">Register</a></li>
+            <li><a href="accounts/login">Login</a></li>
+        {% endif %}
+    </ul>
+    <button><a href="/cart">View Cart</a></button>
+    {% for product in products %}
+    <div class="first">
+        <div class="mm">
+            {% if product.img %}
+                <a href="{% url 'product_detail' product.pk %}">
+                    <img src="{{ product.img.url }}" alt="{{ product.name }}">
+                </a>
+            {% endif %}
+        </div>
+        <h4 class="mm">Name: {{ product.name }}</h4>
+        <br>
+        <p class="mm">Desc: {{ product.desc }}</p>
+        <br>
+        <p class="mm">Price: Rs.{{ product.price }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
+
+
+<!-- create a save to later page and in cart if we press it should delete from here and go and save in later page and create a delete button in cart page-->

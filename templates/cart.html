@@ -1,0 +1,34 @@
+
+<head>
+    <style>
+        .mm{
+            display: inline;
+            align-items: center;
+        }
+    </style>
+</head>
+{% block content %}
+<h1>Shopping Cart</h1>
+<p>Total items: {{ total_items }}</p>
+<p>Total price: Rs.{{ total_price }}</p>
+<p>Final price: Rs.{{ final_price }}</p>
+{% if cart_items %}
+<ul>
+    {% for product in cart_items %}
+    <li><div class="main">
+        <h2>{{ product.name }}</h2>
+        <div class="mm">
+            <img src="{{ product.img }}" alt="{{ product.name }}" style="width: 200px; height: 200px;">
+        </div>
+        <p>{{ product.desc }}</p>
+        <p>Price: Rs.{{ product.price }}</p>
+        <div class="mm"> <p >Quantity: {{ product.quantity }}
+         <a href="{% url 'update_cart' product.pk 'increase' %}">+</a>
+         <a href="{% url 'update_cart' product.pk 'decrease' %}">-</a></p></div></div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Your cart is empty.</p>
+{% endif %}
+{% endblock %}

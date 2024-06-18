@@ -1,0 +1,9 @@
+
+
+{% block content %}
+<h1 style="margin-left: 43%;">Name:{{ product.name }}</h1>
+<img src="{{ product.img.url }}" alt="{{ product.name }}" height="200px" width="250px" style="margin-left: 40%;">
+<p style="margin-left: 43%;">Desc: {{ product.desc }}</p>
+<p style="margin-left: 43%;">Price: Rs.{{ product.price }}</p>
+<a href="{% url 'add_to_cart' product.pk %}" style="margin-left: 43%;">Add to Cart</a>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Second Page{% endblock %}
+
+{% block content %}
+
+<head>
+    <style>
+        .first{
+            display: flex;
+            align-self: center;
+            column-gap: 10rem;
+        }
+        .second{
+            display: flex;
+            align-self: center;
+            column-gap: 8rem;
+        }
+        .mm{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="first">
+        <div class="mm"><img src="1.jpeg" alt="">
+        <p>pro1</p></div>
+        <div class="mm"><img src="2.jpeg" alt="">
+        <p>pro2</p></div>
+        <div class="mm"><img src="3.jpeg" alt="">
+        <p>pro3</p></div>
+    </div>
+    <div class="second">
+        <div class="mm"><img src="4.jpeg" alt="">
+        <p>pro4</p></div>
+        <div class="mm"><img src="5.jpeg" alt="">
+        <p>pro5</p></div>
+        <div class="mm"><img src="6.jpeg" alt="">
+        <p>pro6</p></div>
+    </div>
+{% endblock %}
