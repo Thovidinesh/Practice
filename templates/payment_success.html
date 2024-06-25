@@ -1,0 +1,7 @@
+
+
+{% block content %}
+<h1>Payment Successful</h1>
+<p>Your payment of Rs.{{ final_price }} was successful. Thank you for your purchase!</p>
+<a href="{% url 'view_orders' %}"><button>View Orders</button></a>
+{% endblock %}

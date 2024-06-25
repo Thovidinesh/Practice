@@ -1,0 +1,23 @@
+{% block content %}
+<h1>Your Orders</h1>
+{% if orders %}
+  {% for order in orders %}
+    <ul>
+      {% for item in order.items.all %}
+        <li>
+          <h3>{{ item.product.name }}</h3>
+          {% if item.product.img %}
+            <img src="{{ item.product.img.url }}" alt="{{ item.product.name }}" style="width: 100px; height: 100px;">
+          {% else %}
+            <p>No Image Available</p>
+          {% endif %}
+          <p>Price: ${{ item.price }}</p>
+          <p>Quantity: {{ item.quantity }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+{% else %}
+  <p>You have no orders.</p>
+{% endif %}
+{% endblock %}

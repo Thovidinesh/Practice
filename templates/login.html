@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url 'addproduct' %}" method="">
+    <form action="{% url 'addproduct' %}" method="post">
         {% csrf_token %}
         <input type="text" name="name" placeholder="username"><br>
         <input type="password" name="password" placeholder="password"><br>
