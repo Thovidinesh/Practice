@@ -12,6 +12,7 @@
 <p>Total items: {{ total_items }}</p>
 <p>Total price: Rs.{{ total_price }}</p>
 <p>Final price: Rs.{{ final_price }}</p>
+<button><a href="{% url 'make_payment' %}">Make Payment</a></button>
 {% if cart_items %}
 <ul>
     {% for product in cart_items %}
@@ -24,9 +25,18 @@
         <p>Price: Rs.{{ product.price }}</p>
         <div class="mm"> <p >Quantity: {{ product.quantity }}
          <a href="{% url 'update_cart' product.pk 'increase' %}">+</a>
-         <a href="{% url 'update_cart' product.pk 'decrease' %}">-</a></p></div></div>
+         <a href="{% url 'update_cart' product.pk 'decrease' %}">-</a></p></div>
+         <form action="{% url 'save_for_later' product.pk %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">Save for Later</button>
+          </form>
+          <form action="{% url 'remove_from_cart' product.pk %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">Remove from Cart</button>
+          </form></div>
     </li>
     {% endfor %}
+    
 </ul>
 {% else %}
 <p>Your cart is empty.</p>

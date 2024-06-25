@@ -6,4 +6,8 @@
 <p style="margin-left: 43%;">Desc: {{ product.desc }}</p>
 <p style="margin-left: 43%;">Price: Rs.{{ product.price }}</p>
 <a href="{% url 'add_to_cart' product.pk %}" style="margin-left: 43%;">Add to Cart</a>
+<form action="{% url 'save_for_later' product.pk %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit">Save for Later</button>
+</form>
 {% endblock %}

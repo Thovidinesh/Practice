@@ -1,0 +1,23 @@
+
+
+{% block content %}
+<h1>Saved for Later</h1>
+<ul>
+  {% for product in saved_products %}
+    <li>
+      <h2>{{ product.name }}</h2>
+      {% if product.img %}
+        <img src="{{ product.img }}" alt="{{ product.name }}" style="width: 100px; height: 100px;">
+      {% else %}
+        <p>No Image Available</p>
+      {% endif %}
+      <p>Price: ${{ product.price }}</p>
+      <p>Quantity: {{ product.quantity }}</p>
+      <form action="{% url 'remove_from_cart' product.pk %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit">Remove from Saved</button>
+      </form>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
