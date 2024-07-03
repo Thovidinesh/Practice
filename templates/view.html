@@ -1,0 +1,34 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first {
+            display: inline;
+            align-self: center;
+        }
+        .mm {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    {% for product in products %}
+    <div class="first">
+        <div class="mm">
+            <img src="{{ product.img.url }}" alt="{{ product.name }}">
+        </div>
+        <h4 class="mm">Name: {{ product.name }}</h4>
+        <br>
+        <p class="mm">Desc: {{ product.desc }}</p>
+        <br>
+        <p class="mm">Price: Rs.{{ product.price }}</p>
+        </form></p>
+    </div>
+    {% endfor %}
+</body>
+</html>
+
+
