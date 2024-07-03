@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'myapp',
     'rest_framework',
     'accounts',
+    'pro1.apps.Pro1Config'
 
 ]
 
