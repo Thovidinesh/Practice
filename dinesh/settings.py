@@ -34,7 +34,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'LittleLemon.apps.LittlelemonConfig',
     'aria.apps.AriaConfig',
     'addpro.apps.AddproConfig',
     'django.contrib.admin',
@@ -46,8 +45,6 @@ INSTALLED_APPS = [
     'myapp',
     'rest_framework',
     'accounts',
-    'pro1.apps.Pro1Config'
-
 ]
 
 MIDDLEWARE = [

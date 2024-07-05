@@ -12,10 +12,10 @@ class PostBase(BaseModel):
 class PostCreate(BaseModel):
     name:str
     details:str
-    adult:bool = True
+    adult:bool = True   
 
 class PostResponse(PostBase):
-    
+    user_id:int
     class Config:   # used for converting sqlalchemy models to pydantic models
         orm_mode = True
 
