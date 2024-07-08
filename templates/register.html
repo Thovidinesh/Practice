@@ -4,6 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        
+        form {
+            background-color: #fff;
+            padding: 20px 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+        div {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        div h3 {
+            color: #ff0000;
+            font-size: 16px;
+        }
+        
+</style>
 </head>
 <body>
     <form action="register" method="post">

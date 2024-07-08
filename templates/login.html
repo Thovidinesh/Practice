@@ -4,18 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .login-form h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <form action="{% url 'addproduct' %}" method="post">
-        {% csrf_token %}
-        <input type="text" name="name" placeholder="username"><br>
-        <input type="password" name="password" placeholder="password"><br>
-        <input type="submit">
+    
+        <div class="login-container">
+            <div class="login-form">
+                <h2>Login</h2>
+                <form action="{% url 'addproduct' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
     </form>
-    <div>
-        {% for message in messages%}
-        <h3>{{message}}</h3>
-        {% endfor %}
-    </div>
 </body>
 </html>
