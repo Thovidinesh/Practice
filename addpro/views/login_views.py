@@ -5,7 +5,7 @@ from django.contrib import messages
 
 def register(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        username = request.POST['name']
         email = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
