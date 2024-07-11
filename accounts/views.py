@@ -1,11 +1,15 @@
+
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login as auth_login, logout
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User
 from django.contrib import messages
+
 
 def register(request):
     if request.method == 'POST':
         username = request.POST['username']
+        firstname = request.POST['first_name']
+        lastname = request.POST['last_name']
         email = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
@@ -16,7 +20,7 @@ def register(request):
             elif User.objects.filter(email=email).exists():
                 messages.error(request, 'Email already exists')
             else:
-                user = User.objects.create_user(username=username, email=email, password=password1)
+                user = User.objects.create_user(username=username, email=email, password=password1, first_name=firstname,last_name=lastname)
                 user.save()
                 messages.success(request, 'Account created successfully')
                 return redirect('login')
@@ -31,13 +35,14 @@ def login(request):
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request, user)  # Ensure user object is passed to login()
+            auth_login(request, user)  # Ensure user object is passed to login()
             messages.success(request, 'You have successfully logged in')
-            return redirect('addproduct.html')
+            return redirect('addproduct')  # Redirect to the correct view name
         else:
             messages.error(request, 'Invalid username or password')
     return render(request, 'login.html')
 
-def logout(request):
-    logout(request)
+def logout_user(request):
+    auth_logout(request)
+    messages.success(request, 'You have successfully logged out')
     return redirect('viewproduct')

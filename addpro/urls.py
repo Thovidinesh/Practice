@@ -4,13 +4,13 @@ from .views import viewproduct, addproduct, product_detail
 from .views import add_to_cart, cart, update_cart, remove_from_cart
 from .views import make_payment, payment_success, view_orders
 from .views import save_for_later, save_later_product, saved_for_later
-from .views import register,login,logout
+from accounts.views import register,login,logout_user
 
 urlpatterns = [
     path('', viewproduct, name='viewproduct'),
     path('register', register, name='register'),
     path('login', login, name='login'),
-    path('logout', logout, name='logout'),
+    path('logout', logout_user, name='logout'),
     path('addproduct/', addproduct, name='addproduct'),
     path('Products/<int:pk>/', product_detail, name='product_detail'),
     path('add_to_cart/<int:pk>/', add_to_cart, name='add_to_cart'),
