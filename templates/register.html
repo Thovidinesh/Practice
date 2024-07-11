@@ -78,11 +78,12 @@
         <input type="password" name="password1" placeholder="password"><br><br>
         <input type="password" name="password2" placeholder="confirm password"><br><br>
         <input type="submit">
+        <div>
+            {% for message in messages%}
+            <h3>{{message}}</h3>
+            {% endfor %}
+        </div>
     </form>
-    <div>
-        {% for message in messages%}
-        <h3>{{message}}</h3>
-        {% endfor %}
-    </div>
+    
 </body>
 </html>
